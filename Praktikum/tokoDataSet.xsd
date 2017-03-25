@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="tokoDataSet" targetNamespace="http://tempuri.org/tokoDataSet.xsd" xmlns:mstns="http://tempuri.org/tokoDataSet.xsd" xmlns="http://tempuri.org/tokoDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="tokoConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="tokoConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WindowsApplication1.My.MySettings.GlobalReference.Default.tokoConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblbarangTableAdapter" GeneratorDataComponentClassName="tblbarangTableAdapter" Name="tblbarang" UserDataComponentName="tblbarangTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="tokoConnectionString (MySettings)" DbObjectName="toko.tblbarang" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `ID_Barang`, `Nama_Barang`, `Merk_Barang`, `Satuan`, `Harga_Beli`, `Harga_Jual`, `Stok` FROM `tblbarang`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblkaryawanTableAdapter" GeneratorDataComponentClassName="tblkaryawanTableAdapter" Name="tblkaryawan" UserDataComponentName="tblkaryawanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="tokoConnectionString (MySettings)" DbObjectName="toko.tblkaryawan" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `ID_Karyawan`, `Nama_Karyawan`, `Alamat`, `Telepon` FROM `tblkaryawan`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltransaksi_jualTableAdapter" GeneratorDataComponentClassName="tbltransaksi_jualTableAdapter" Name="tbltransaksi_jual" UserDataComponentName="tbltransaksi_jualTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="tokoConnectionString (MySettings)" DbObjectName="toko.tbltransaksi_jual" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `No_Faktur`, `Tanggal`, `Pembeli`, `Total_Harga` FROM `tbltransaksi_jual`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltransaksi_jual_rinciTableAdapter" GeneratorDataComponentClassName="tbltransaksi_jual_rinciTableAdapter" Name="tbltransaksi_jual_rinci" UserDataComponentName="tbltransaksi_jual_rinciTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="tokoConnectionString (MySettings)" DbObjectName="toko.tbltransaksi_jual_rinci" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `No_Faktur`, `ID`, `Nama`, `Harga_jual`, `Jumlah`, `Subtotal` FROM `tbltransaksi_jual_rinci`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="tokoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="tokoDataSet" msprop:Generator_UserDSName="tokoDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblbarang" msprop:Generator_TableClassName="tblbarangDataTable" msprop:Generator_TableVarName="tabletblbarang" msprop:Generator_TablePropName="tblbarang" msprop:Generator_RowDeletingName="tblbarangRowDeleting" msprop:Generator_RowChangingName="tblbarangRowChanging" msprop:Generator_RowEvHandlerName="tblbarangRowChangeEventHandler" msprop:Generator_RowDeletedName="tblbarangRowDeleted" msprop:Generator_UserTableName="tblbarang" msprop:Generator_RowChangedName="tblbarangRowChanged" msprop:Generator_RowEvArgName="tblbarangRowChangeEvent" msprop:Generator_RowClassName="tblbarangRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblkaryawan" msprop:Generator_TableClassName="tblkaryawanDataTable" msprop:Generator_TableVarName="tabletblkaryawan" msprop:Generator_TablePropName="tblkaryawan" msprop:Generator_RowDeletingName="tblkaryawanRowDeleting" msprop:Generator_RowChangingName="tblkaryawanRowChanging" msprop:Generator_RowEvHandlerName="tblkaryawanRowChangeEventHandler" msprop:Generator_RowDeletedName="tblkaryawanRowDeleted" msprop:Generator_UserTableName="tblkaryawan" msprop:Generator_RowChangedName="tblkaryawanRowChanged" msprop:Generator_RowEvArgName="tblkaryawanRowChangeEvent" msprop:Generator_RowClassName="tblkaryawanRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltransaksi_jual" msprop:Generator_TableClassName="tbltransaksi_jualDataTable" msprop:Generator_TableVarName="tabletbltransaksi_jual" msprop:Generator_TablePropName="tbltransaksi_jual" msprop:Generator_RowDeletingName="tbltransaksi_jualRowDeleting" msprop:Generator_RowChangingName="tbltransaksi_jualRowChanging" msprop:Generator_RowEvHandlerName="tbltransaksi_jualRowChangeEventHandler" msprop:Generator_RowDeletedName="tbltransaksi_jualRowDeleted" msprop:Generator_UserTableName="tbltransaksi_jual" msprop:Generator_RowChangedName="tbltransaksi_jualRowChanged" msprop:Generator_RowEvArgName="tbltransaksi_jualRowChangeEvent" msprop:Generator_RowClassName="tbltransaksi_jualRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltransaksi_jual_rinci" msprop:Generator_TableClassName="tbltransaksi_jual_rinciDataTable" msprop:Generator_TableVarName="tabletbltransaksi_jual_rinci" msprop:Generator_TablePropName="tbltransaksi_jual_rinci" msprop:Generator_RowDeletingName="tbltransaksi_jual_rinciRowDeleting" msprop:Generator_RowChangingName="tbltransaksi_jual_rinciRowChanging" msprop:Generator_RowEvHandlerName="tbltransaksi_jual_rinciRowChangeEventHandler" msprop:Generator_RowDeletedName="tbltransaksi_jual_rinciRowDeleted" msprop:Generator_UserTableName="tbltransaksi_jual_rinci" msprop:Generator_RowChangedName="tbltransaksi_jual_rinciRowChanged" msprop:Generator_RowEvArgName="tbltransaksi_jual_rinciRowChangeEvent" msprop:Generator_RowClassName="tbltransaksi_jual_rinciRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
