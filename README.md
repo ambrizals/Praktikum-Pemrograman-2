@@ -1,5 +1,5 @@
 # Praktikum-Pemrograman-2
-Tugas pembuatan praktikum pemrograman 2 yang bertujuan untuk memahami cara pembuatan form Visual Basic yang terhubung dengan database, repository ini digunakan untuk pembelajaran dan pengguna lain dapat menggunakannya secara bebas tanpa menkomersialkan isi dari respository ini.
+Tugas pembuatan praktikum pemrograman 2 yang bertujuan untuk memahami cara pembuatan form Visual Basic yang terhubung dengan database, repository ini digunakan untuk pembelajaran dan pengguna lain dapat menggunakannya secara bebas tanpa mengkomersialkan isi dari respository ini.
 
 # Required Tools
 - Visual Studio / Visual Basic 6
