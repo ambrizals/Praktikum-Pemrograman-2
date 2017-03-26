@@ -7,13 +7,12 @@ Public Class FrmKaryawan
     Dim Proses As New ClsKoneksi
     Dim tblKaryawan As DataTable
 
-
     Sub Data_Record()
         tblKaryawan = Proses.ExecuteQuery("Select * From TblKaryawan")
         DGKaryawan.DataSource = tblKaryawan
         DGKaryawan.Columns(0).Width = 75
         DGKaryawan.Columns(1).Width = 100
-        DGKaryawan.Columns(2).Width = 255
+        DGKaryawan.Columns(2).Width = 295.2
         DGKaryawan.Columns(3).Width = 100
 
     End Sub
@@ -50,12 +49,6 @@ Public Class FrmKaryawan
         TxtNmKar.Focus()
     End Sub
 
-    Private Sub FrmKaryawan_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'TokoDataSet.tblkaryawan' table. You can move, or remove it, as needed.
-        Me.TblkaryawanTableAdapter.Fill(Me.TokoDataSet.tblkaryawan)
-        Call Atur()
-    End Sub
-
     Private Sub BtnSimpan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSimpan.Click
         If TxtNmKar.Text = "" Then TxtNmKar.Focus() : Exit Sub
         SQL = "Insert Into Tblkaryawan Values ('" & TxtKode.Text & "','" & TxtNmKar.Text & "', '" & TxtAlamat.Text & "','" & TxtTelp.Text & "')"
@@ -87,26 +80,13 @@ Public Class FrmKaryawan
     Private Sub DGKaryawan_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles DGKaryawan.DoubleClick
         TxtKode.Text = DGKaryawan.SelectedCells(0).Value
         TxtNmKar.Text = DGKaryawan.SelectedCells(1).Value
+        TxtAlamat.Text = DGKaryawan.SelectedCells(2).Value
+        TxtTelp.Text = DGKaryawan.SelectedCells(3).Value
         BtnUbah.Enabled = True
         BtnHapus.Enabled = True
         BtnSimpan.Enabled = False
     End Sub
 
-    'Private Sub DGKaryawan_Click(sender As Object, e As EventArgs) Handles DGKaryawan.Click
-    'Dim barkom As Integer
-    'With DGKaryawan
-    '       barkom = .CurrentRow.Index
-
-    '      TxtKode.Text = .Item(0, barkom).Value
-    '      TxtNmKar.Text = .Item(1, barkom).Value
-    '      TxtAlamat.Text = .Item(2, barkom).Value
-    '      TxtTelp.Text = .Item(3, barkom).Value
-    'End With
-    '  BtnUbah.Enabled = True
-    ''  BtnHapus.Enabled = True
-    ' BtnSimpan.Enabled = False
-    '    btncari.Enabled = False
-    'End Sub
 
     Private Sub btncari_Click(sender As Object, e As EventArgs) Handles btncari.Click
         If TxtNmKar.Text = "" Then TxtNmKar.Focus() : Exit Sub
@@ -126,7 +106,9 @@ Public Class FrmKaryawan
 
     End Sub
 
-
+    Private Sub FrmKaryawan_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Call Atur()
+    End Sub
 End Class
 Public Class ClsKoneksi
     Protected SQL As String

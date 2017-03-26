@@ -22,7 +22,6 @@ Partial Class FrmKaryawan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -37,12 +36,7 @@ Partial Class FrmKaryawan
         Me.BtnBatal = New System.Windows.Forms.Button()
         Me.DGKaryawan = New System.Windows.Forms.DataGridView()
         Me.btncari = New System.Windows.Forms.Button()
-        Me.TokoDataSet = New WindowsApplication1.tokoDataSet()
-        Me.TblkaryawanBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TblkaryawanTableAdapter = New WindowsApplication1.tokoDataSetTableAdapters.tblkaryawanTableAdapter()
         CType(Me.DGKaryawan, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TokoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblkaryawanBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -138,6 +132,7 @@ Partial Class FrmKaryawan
         '
         'BtnBatal
         '
+        Me.BtnBatal.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.BtnBatal.Location = New System.Drawing.Point(449, 112)
         Me.BtnBatal.Name = "BtnBatal"
         Me.BtnBatal.Size = New System.Drawing.Size(137, 40)
@@ -149,10 +144,15 @@ Partial Class FrmKaryawan
         '
         Me.DGKaryawan.AllowUserToAddRows = False
         Me.DGKaryawan.AllowUserToDeleteRows = False
+        Me.DGKaryawan.AllowUserToResizeColumns = False
+        Me.DGKaryawan.AllowUserToResizeRows = False
         Me.DGKaryawan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGKaryawan.Location = New System.Drawing.Point(13, 158)
+        Me.DGKaryawan.MultiSelect = False
         Me.DGKaryawan.Name = "DGKaryawan"
         Me.DGKaryawan.ReadOnly = True
+        Me.DGKaryawan.RowHeadersVisible = False
+        Me.DGKaryawan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGKaryawan.Size = New System.Drawing.Size(573, 216)
         Me.DGKaryawan.TabIndex = 12
         '
@@ -165,20 +165,6 @@ Partial Class FrmKaryawan
         Me.btncari.TabIndex = 13
         Me.btncari.Text = "Search"
         Me.btncari.UseVisualStyleBackColor = True
-        '
-        'TokoDataSet
-        '
-        Me.TokoDataSet.DataSetName = "tokoDataSet"
-        Me.TokoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TblkaryawanBindingSource
-        '
-        Me.TblkaryawanBindingSource.DataMember = "tblkaryawan"
-        Me.TblkaryawanBindingSource.DataSource = Me.TokoDataSet
-        '
-        'TblkaryawanTableAdapter
-        '
-        Me.TblkaryawanTableAdapter.ClearBeforeFill = True
         '
         'FrmKaryawan
         '
@@ -199,12 +185,11 @@ Partial Class FrmKaryawan
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.MaximizeBox = False
         Me.Name = "FrmKaryawan"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Data Karyawan"
         CType(Me.DGKaryawan, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TokoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblkaryawanBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -223,7 +208,4 @@ Partial Class FrmKaryawan
     Friend WithEvents BtnBatal As System.Windows.Forms.Button
     Friend WithEvents DGKaryawan As System.Windows.Forms.DataGridView
     Friend WithEvents btncari As Button
-    Friend WithEvents TokoDataSet As tokoDataSet
-    Friend WithEvents TblkaryawanBindingSource As BindingSource
-    Friend WithEvents TblkaryawanTableAdapter As tokoDataSetTableAdapters.tblkaryawanTableAdapter
 End Class
