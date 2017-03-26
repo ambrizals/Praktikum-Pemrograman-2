@@ -11,3 +11,7 @@ Tugas pembuatan praktikum pemrograman 2 yang bertujuan untuk memahami cara pembu
 - Import database yang disediakan pada direktori Database
 - Install MySQL Connector jika belum menginstall sebelumnya
 - Perhatikan baris 122 - 124 untuk memberikan informasi akses ke database
+
+# Hubungi Saya
+
+Jika anda ingin memberikan pertanyaan mengenai isi repository ini, anda dapat menghubungi saya melalui alamat email yang telah tercantum di profile dan tumblr yang telah tercantum di tumblr. 
