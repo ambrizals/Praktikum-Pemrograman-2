@@ -15,3 +15,11 @@ Tugas pembuatan praktikum pemrograman 2 yang bertujuan untuk memahami cara pembu
 # Hubungi Saya
 
 Jika anda ingin memberikan pertanyaan mengenai isi repository ini, anda dapat menghubungi saya melalui alamat email yang telah tercantum di profile dan tumblr yang telah tercantum di tumblr. 
+
+# Change log
+
+- 0.1 > 0.2
+-- Build apps
+
+- 0.3
+-- Create null validation
