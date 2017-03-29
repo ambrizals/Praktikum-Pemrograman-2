@@ -19,7 +19,7 @@ Jika anda ingin memberikan pertanyaan mengenai isi repository ini, anda dapat me
 # Change log
 
 - 0.1 > 0.2
--- Build apps
+Build apps
 
 - 0.3
--- Create null validation
+Create null validation
