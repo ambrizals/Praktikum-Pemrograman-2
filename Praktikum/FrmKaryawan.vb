@@ -43,6 +43,7 @@ Public Class FrmKaryawan
         BtnUbah.Enabled = False
         BtnHapus.Enabled = False
         TxtKode.Enabled = False
+        TxtNmKar.ReadOnly = False
         TxtNmKar.Text = ""
         TxtAlamat.Text = ""
         TxtTelp.Text = ""
@@ -50,12 +51,18 @@ Public Class FrmKaryawan
     End Sub
 
     Private Sub BtnSimpan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSimpan.Click
-        If TxtNmKar.Text = "" Then TxtNmKar.Focus() : Exit Sub
-        SQL = "Insert Into Tblkaryawan Values ('" & TxtKode.Text & "','" & TxtNmKar.Text & "', '" & TxtAlamat.Text & "','" & TxtTelp.Text & "')"
-        Proses.ExecuteNonQuery(SQL)
-        MessageBox.Show("Data Baru telah disimpan..!!", "Penyimpanan Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Call Atur()
-
+        If TxtNmKar.Text = "" Then
+            TxtNmKar.Focus()
+        ElseIf TxtAlamat.Text = "" Then
+            TxtAlamat.Focus()
+        ElseIf TxtTelp.Text = "" Then
+            TxtTelp.Focus()
+        Else
+            SQL = "Insert Into Tblkaryawan Values ('" & TxtKode.Text & "','" & TxtNmKar.Text & "', '" & TxtAlamat.Text & "','" & TxtTelp.Text & "')"
+            Proses.ExecuteNonQuery(SQL)
+            MessageBox.Show("Data Baru telah disimpan..!!", "Penyimpanan Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Call Atur()
+        End If
     End Sub
 
     Private Sub BtnUbah_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnUbah.Click
@@ -82,6 +89,7 @@ Public Class FrmKaryawan
         TxtNmKar.Text = DGKaryawan.SelectedCells(1).Value
         TxtAlamat.Text = DGKaryawan.SelectedCells(2).Value
         TxtTelp.Text = DGKaryawan.SelectedCells(3).Value
+        TxtNmKar.ReadOnly = True
         BtnUbah.Enabled = True
         BtnHapus.Enabled = True
         BtnSimpan.Enabled = False
@@ -92,6 +100,12 @@ Public Class FrmKaryawan
         If TxtNmKar.Text = "" Then TxtNmKar.Focus() : Exit Sub
         tblKaryawan = Proses.ExecuteQuery("select * from tblkaryawan where nama_karyawan like '%" & TxtNmKar.Text & "%' ")
         DGKaryawan.DataSource = tblKaryawan
+        If DGKaryawan.RowCount.ToString = "0" Then
+            Call Atur()
+            MsgBox("Data tidak ditemukan", MsgBoxStyle.Information, "Error")
+        Else
+            DGKaryawan.DataSource = tblKaryawan
+        End If
         TxtNmKar.Focus()
         TxtAlamat.Text = ""
         TxtTelp.Text = ""
@@ -108,6 +122,14 @@ Public Class FrmKaryawan
 
     Private Sub FrmKaryawan_Load(sender As Object, e As EventArgs) Handles Me.Load
         Call Atur()
+    End Sub
+
+    Private Sub TxtTelp_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtTelp.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
     End Sub
 End Class
 Public Class ClsKoneksi
