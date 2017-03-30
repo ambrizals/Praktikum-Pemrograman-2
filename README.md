@@ -24,4 +24,4 @@ Jika anda ingin memberikan pertanyaan mengenai isi repository ini, anda dapat me
 
 0.1 > 0.2
 - Build apps
-- Build database structur and data
+- Build database structure and data
