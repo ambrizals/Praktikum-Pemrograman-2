@@ -78,17 +78,36 @@ Public Class FrmKaryawan
 
     Private Sub BtnUbah_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnUbah.Click
         If TxtNmKar.Text = "" Then TxtNmKar.Focus() : Exit Sub
-        SQL = "update tblkaryawan set Nama_Karyawan = '" & TxtNmKar.Text & "', alamat = '" & TxtAlamat.Text & "', Telepon = '" & TxtTelp.Text & "' where ID_Karyawan = '" & TxtKode.Text & "'"
-        Proses.ExecuteNonQuery(SQL)
-        MessageBox.Show("Data sudah diperbaiki...!!", "Perubahan Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Call Atur()
+        'Inisialisasi variabel
+        Dim alamat_karyawan_old, telp_karyawan_old As String
+        Dim alamat_karyawan_new, telp_karyawan_new As String
+        'Ambil data lama dari datagridview
+        alamat_karyawan_old = DGKaryawan.SelectedCells(2).Value
+        telp_karyawan_old = DGKaryawan.SelectedCells(3).Value
+        'Ambil data baru dari textbox
+        alamat_karyawan_new = TxtAlamat.Text
+        telp_karyawan_new = TxtTelp.Text
+
+        'Validasi data yang sama
+        If telp_karyawan_old = telp_karyawan_new And alamat_karyawan_old = alamat_karyawan_new Then
+            MsgBox("Tidak ada perubahan", MsgBoxStyle.Information, "Info")
+        Else
+            'Proses dieksekusi jika data yang diinput telah berbeda
+            SQL = "update tblkaryawan set Nama_Karyawan = '" & TxtNmKar.Text & "', alamat = '" & TxtAlamat.Text & "', Telepon = '" & TxtTelp.Text & "' where ID_Karyawan = '" & TxtKode.Text & "'"
+            Proses.ExecuteNonQuery(SQL)
+            MessageBox.Show("Data sudah diperbaiki...!!", "Perubahan Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Call Atur()
+        End If
     End Sub
 
     Private Sub BtnHapus_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnHapus.Click
-        SQL = "delete from tblkaryawan where ID_Karyawan = '" & TxtKode.Text & "'"
-        Proses.ExecuteNonQuery(SQL)
-        MessageBox.Show("Data sudah dihapus...!!", "Penghapusan Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Call Atur()
+        'Konfirmasi penghapusan
+        If MsgBox("Apakah ingin menghapus data ini ?", MsgBoxStyle.OkCancel, "Konfirmasi !") = MsgBoxResult.Ok Then
+            SQL = "delete from tblkaryawan where ID_Karyawan = '" & TxtKode.Text & "'"
+            Proses.ExecuteNonQuery(SQL)
+            MessageBox.Show("Data sudah dihapus...!!", "Penghapusan Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Call Atur()
+        End If
     End Sub
 
     Private Sub BtnBatal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnBatal.Click
