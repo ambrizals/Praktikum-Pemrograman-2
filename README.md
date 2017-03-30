@@ -18,15 +18,16 @@ Jika anda ingin memberikan pertanyaan mengenai isi repository ini, anda dapat me
 
 # Change log
 
-0.4
+0.4 (FrmKaryawan)
 - Adding validation same data if you want to edit selected data in DGKaryawan (DataGridView)
 - Adding confirmation window to delete data
 - Update btnbatal click event
 
-0.3
+0.3 (FrmKaryawan)
 - Create null validation
 - Fix DGkaryawan if datagrid is selected
 
 0.1 > 0.2
 - Build apps
 - Build database structure and data
+- Build FrmKaryawan
