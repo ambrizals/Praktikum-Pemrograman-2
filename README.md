@@ -18,6 +18,11 @@ Jika anda ingin memberikan pertanyaan mengenai isi repository ini, anda dapat me
 
 # Change log
 
+0.4
+- Adding validation same data if you want to edit selected data in DGKaryawan (DataGridView)
+- Adding confirmation window to delete data
+- Update btnbatal click event
+
 0.3
 - Create null validation
 - Fix DGkaryawan if datagrid is selected
