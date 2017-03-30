@@ -149,12 +149,15 @@ Public Class FrmKaryawan
     End Sub
 
     Private Sub TxtAlamat_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtAlamat.KeyPress
-        btncari.Enabled = False
+        If DGKaryawan.RowCount > 0 Then
+            btncari.Enabled = False
+        End If
     End Sub
 
     Private Sub TxtNmKar_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtNmKar.KeyPress
-        btncari.Enabled = True
-
+        If DGKaryawan.RowCount > 0 Then
+            btncari.Enabled = True
+        End If
     End Sub
 
     Private Sub FrmKaryawan_Load(sender As Object, e As EventArgs) Handles Me.Load
