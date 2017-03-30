@@ -14,7 +14,15 @@ Public Class FrmKaryawan
         DGKaryawan.Columns(1).Width = 100
         DGKaryawan.Columns(2).Width = 295.2
         DGKaryawan.Columns(3).Width = 100
+    End Sub
 
+    Sub Data_Edit()
+        tblKaryawan = Proses.ExecuteQuery("Select * From TblKaryawan where ID_Karyawan ='" & TxtKode.Text & "'")
+        DGKaryawan.DataSource = tblKaryawan
+        DGKaryawan.Columns(0).Width = 75
+        DGKaryawan.Columns(1).Width = 100
+        DGKaryawan.Columns(2).Width = 295.2
+        DGKaryawan.Columns(3).Width = 100
     End Sub
 
     Sub Kode_Otomatis()
@@ -52,10 +60,13 @@ Public Class FrmKaryawan
 
     Private Sub BtnSimpan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSimpan.Click
         If TxtNmKar.Text = "" Then
+            MsgBox("Data Nama Karyawan Belum Terisi", MsgBoxStyle.Critical, "Error")
             TxtNmKar.Focus()
         ElseIf TxtAlamat.Text = "" Then
+            MsgBox("Data Alamat Karyawan Belum Terisi", MsgBoxStyle.Critical, "Error")
             TxtAlamat.Focus()
         ElseIf TxtTelp.Text = "" Then
+            MsgBox("Data Nomor Telepon Karyawan Belum Terisi", MsgBoxStyle.Critical, "Error")
             TxtTelp.Focus()
         Else
             SQL = "Insert Into Tblkaryawan Values ('" & TxtKode.Text & "','" & TxtNmKar.Text & "', '" & TxtAlamat.Text & "','" & TxtTelp.Text & "')"
@@ -81,7 +92,12 @@ Public Class FrmKaryawan
     End Sub
 
     Private Sub BtnBatal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnBatal.Click
-        Call Atur()
+        If TxtNmKar.Text.Count > 0 Then
+            Call Atur()
+        Else
+            Me.Close()
+        End If
+
     End Sub
 
     Private Sub DGKaryawan_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles DGKaryawan.DoubleClick
@@ -93,6 +109,8 @@ Public Class FrmKaryawan
         BtnUbah.Enabled = True
         BtnHapus.Enabled = True
         BtnSimpan.Enabled = False
+        Call Data_Edit()
+
     End Sub
 
 
@@ -131,6 +149,8 @@ Public Class FrmKaryawan
             End If
         End If
     End Sub
+
+
 End Class
 Public Class ClsKoneksi
     Protected SQL As String
