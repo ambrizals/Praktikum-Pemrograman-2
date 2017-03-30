@@ -5,9 +5,9 @@ Tugas pembuatan praktikum pemrograman 2 yang bertujuan untuk memahami cara pembu
 - Visual Studio / Visual Basic 6
 - XAMPP or MySQL Community Server
 - MySQL Connector .net
+- SQLYog (Optional)
 
 # Read this before used
-
 - Import database yang disediakan pada direktori Database
 - Install MySQL Connector jika belum menginstall sebelumnya
 - Perhatikan baris 122 - 124 untuk memberikan informasi akses ke database
