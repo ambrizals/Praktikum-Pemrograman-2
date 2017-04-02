@@ -18,6 +18,9 @@ Jika anda ingin memberikan pertanyaan mengenai isi repository ini, anda dapat me
 
 # Change log
 
+0.41 (FrmKaryawan)
+- Adding validation duplicate data in save button
+
 0.4 (FrmKaryawan)
 - Adding validation same data if you want to edit selected data in DGKaryawan (DataGridView)
 - Adding confirmation window to delete data
