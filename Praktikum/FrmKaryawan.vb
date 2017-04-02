@@ -84,12 +84,14 @@ Public Class FrmKaryawan
     End Sub
 
     Private Sub BtnSimpan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSimpan.Click
+        'Validasi data yang sama dengan melakukan pencarian terlebih dahulu
         If search_check = 0 Then
             MsgBox("Silahkan lakukan pencarian terlebih dahulu", MsgBoxStyle.Critical, "Error")
             search_check = 0
         ElseIf search_check = 1 Then
             MsgBox("Data sudah ada", MsgBoxStyle.Critical, "Error")
             search_check = 0
+            'Validasi textbox yang tidak terisi
         ElseIf TxtNmKar.Text = "" Then
             MsgBox("Data Nama Karyawan Belum Terisi", MsgBoxStyle.Critical, "Error")
             TxtNmKar.Focus()
