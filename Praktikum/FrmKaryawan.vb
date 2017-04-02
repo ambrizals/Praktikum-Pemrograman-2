@@ -6,6 +6,7 @@ Public Class FrmKaryawan
     Dim SQL As String
     Dim Proses As New ClsKoneksi
     Dim tblKaryawan As DataTable
+    Dim search_check As Integer
 
     Sub Data_Record()
         tblKaryawan = Proses.ExecuteQuery("Select * From TblKaryawan")
@@ -58,8 +59,38 @@ Public Class FrmKaryawan
         TxtNmKar.Focus()
     End Sub
 
+    Public Sub btncari_Click(sender As Object, e As EventArgs) Handles btncari.Click
+        If TxtNmKar.Text = "" Then TxtNmKar.Focus() : Exit Sub
+        tblKaryawan = Proses.ExecuteQuery("select * from tblkaryawan where nama_karyawan like '%" & TxtNmKar.Text & "%' ")
+        DGKaryawan.DataSource = tblKaryawan
+        If DGKaryawan.RowCount.ToString = "0" Then
+            If MsgBox("Data tidak ditemukan, ingin membuat data baru ?", MsgBoxStyle.OkCancel, "Konfirmasi") = MsgBoxResult.Ok Then
+                TxtAlamat.Enabled = True
+                TxtTelp.Enabled = True
+                search_check = 2
+            Else
+                Call Atur()
+                TxtAlamat.Enabled = False
+                TxtTelp.Enabled = False
+                search_check = 2
+            End If
+        Else
+            DGKaryawan.DataSource = tblKaryawan
+            TxtNmKar.Focus()
+            TxtAlamat.Text = ""
+            TxtTelp.Text = ""
+            search_check = 1
+        End If
+    End Sub
+
     Private Sub BtnSimpan_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSimpan.Click
-        If TxtNmKar.Text = "" Then
+        If search_check = 0 Then
+            MsgBox("Silahkan lakukan pencarian terlebih dahulu", MsgBoxStyle.Critical, "Error")
+            search_check = 0
+        ElseIf search_check = 1 Then
+            MsgBox("Data sudah ada", MsgBoxStyle.Critical, "Error")
+            search_check = 0
+        ElseIf TxtNmKar.Text = "" Then
             MsgBox("Data Nama Karyawan Belum Terisi", MsgBoxStyle.Critical, "Error")
             TxtNmKar.Focus()
         ElseIf TxtAlamat.Text = "" Then
@@ -90,7 +121,7 @@ Public Class FrmKaryawan
 
         'Validasi data yang sama
         If telp_karyawan_old = telp_karyawan_new And alamat_karyawan_old = alamat_karyawan_new Then
-            MsgBox("Tidak ada perubahan", MsgBoxStyle.Information, "Info")
+            MsgBox("Tidak ada perubahan", MsgBoxStyle.Exclamation, "Info")
         Else
             'Proses dieksekusi jika data yang diinput telah berbeda
             SQL = "update tblkaryawan set Nama_Karyawan = '" & TxtNmKar.Text & "', alamat = '" & TxtAlamat.Text & "', Telepon = '" & TxtTelp.Text & "' where ID_Karyawan = '" & TxtKode.Text & "'"
@@ -113,6 +144,8 @@ Public Class FrmKaryawan
     Private Sub BtnBatal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnBatal.Click
         If TxtNmKar.Text.Count > 0 Then
             Call Atur()
+            TxtAlamat.Enabled = False
+            TxtTelp.Enabled = False
         Else
             Me.Close()
         End If
@@ -124,28 +157,14 @@ Public Class FrmKaryawan
         TxtNmKar.Text = DGKaryawan.SelectedCells(1).Value
         TxtAlamat.Text = DGKaryawan.SelectedCells(2).Value
         TxtTelp.Text = DGKaryawan.SelectedCells(3).Value
+        TxtAlamat.Enabled = True
+        TxtTelp.Enabled = True
         TxtNmKar.ReadOnly = True
         BtnUbah.Enabled = True
         BtnHapus.Enabled = True
         BtnSimpan.Enabled = False
         Call Data_Edit()
 
-    End Sub
-
-
-    Private Sub btncari_Click(sender As Object, e As EventArgs) Handles btncari.Click
-        If TxtNmKar.Text = "" Then TxtNmKar.Focus() : Exit Sub
-        tblKaryawan = Proses.ExecuteQuery("select * from tblkaryawan where nama_karyawan like '%" & TxtNmKar.Text & "%' ")
-        DGKaryawan.DataSource = tblKaryawan
-        If DGKaryawan.RowCount.ToString = "0" Then
-            Call Atur()
-            MsgBox("Data tidak ditemukan", MsgBoxStyle.Information, "Error")
-        Else
-            DGKaryawan.DataSource = tblKaryawan
-        End If
-        TxtNmKar.Focus()
-        TxtAlamat.Text = ""
-        TxtTelp.Text = ""
     End Sub
 
     Private Sub TxtAlamat_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtAlamat.KeyPress

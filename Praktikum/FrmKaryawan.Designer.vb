@@ -80,35 +80,37 @@ Partial Class FrmKaryawan
         Me.TxtKode.Location = New System.Drawing.Point(115, 11)
         Me.TxtKode.Name = "TxtKode"
         Me.TxtKode.Size = New System.Drawing.Size(471, 20)
-        Me.TxtKode.TabIndex = 4
+        Me.TxtKode.TabIndex = 1
         '
         'TxtNmKar
         '
         Me.TxtNmKar.Location = New System.Drawing.Point(115, 36)
         Me.TxtNmKar.Name = "TxtNmKar"
         Me.TxtNmKar.Size = New System.Drawing.Size(316, 20)
-        Me.TxtNmKar.TabIndex = 5
+        Me.TxtNmKar.TabIndex = 2
         '
         'TxtAlamat
         '
+        Me.TxtAlamat.Enabled = False
         Me.TxtAlamat.Location = New System.Drawing.Point(115, 60)
         Me.TxtAlamat.Name = "TxtAlamat"
         Me.TxtAlamat.Size = New System.Drawing.Size(471, 20)
-        Me.TxtAlamat.TabIndex = 6
+        Me.TxtAlamat.TabIndex = 4
         '
         'TxtTelp
         '
+        Me.TxtTelp.Enabled = False
         Me.TxtTelp.Location = New System.Drawing.Point(115, 85)
         Me.TxtTelp.Name = "TxtTelp"
         Me.TxtTelp.Size = New System.Drawing.Size(471, 20)
-        Me.TxtTelp.TabIndex = 7
+        Me.TxtTelp.TabIndex = 5
         '
         'BtnSimpan
         '
         Me.BtnSimpan.Location = New System.Drawing.Point(13, 112)
         Me.BtnSimpan.Name = "BtnSimpan"
         Me.BtnSimpan.Size = New System.Drawing.Size(127, 40)
-        Me.BtnSimpan.TabIndex = 8
+        Me.BtnSimpan.TabIndex = 6
         Me.BtnSimpan.Text = "Simpan"
         Me.BtnSimpan.UseVisualStyleBackColor = True
         '
@@ -162,7 +164,7 @@ Partial Class FrmKaryawan
         Me.btncari.Location = New System.Drawing.Point(437, 36)
         Me.btncari.Name = "btncari"
         Me.btncari.Size = New System.Drawing.Size(149, 20)
-        Me.btncari.TabIndex = 13
+        Me.btncari.TabIndex = 3
         Me.btncari.Text = "Search"
         Me.btncari.UseVisualStyleBackColor = True
         '
