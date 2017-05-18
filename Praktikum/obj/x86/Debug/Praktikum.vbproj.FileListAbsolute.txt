@@ -46,9 +46,11 @@ D:\Documents\Praktikum Pemrograman 2\Praktikum-Pemrograman-2\Praktikum\obj\x86\D
 D:\Documents\Praktikum Pemrograman 2\Praktikum-Pemrograman-2\Praktikum\bin\Debug\Praktikum.exe
 D:\Documents\Praktikum Pemrograman 2\Praktikum-Pemrograman-2\Praktikum\bin\Debug\Praktikum.pdb
 D:\Documents\Praktikum Pemrograman 2\Praktikum-Pemrograman-2\Praktikum\bin\Debug\Praktikum.xml
-D:\Documents\Praktikum Pemrograman 2\Praktikum-Pemrograman-2\Praktikum\bin\Debug\MySql.Data.dll
 D:\Documents\Praktikum Pemrograman 2\Praktikum-Pemrograman-2\Praktikum\bin\Debug\MySql.Data.xml
 D:\Documents\Praktikum Pemrograman 2\Praktikum-Pemrograman-2\Praktikum\obj\x86\Debug\Praktikum.vbprojResolveAssemblyReference.cache
 D:\Documents\Praktikum Pemrograman 2\Praktikum-Pemrograman-2\Praktikum\obj\x86\Debug\WindowsApplication1.FrmKaryawan.resources
 D:\Documents\Praktikum Pemrograman 2\Praktikum-Pemrograman-2\Praktikum\obj\x86\Debug\WindowsApplication1.Resources.resources
 D:\Documents\Praktikum Pemrograman 2\Praktikum-Pemrograman-2\Praktikum\obj\x86\Debug\Praktikum.vbproj.GenerateResource.Cache
+D:\Documents\Praktikum Pemrograman 2\Praktikum-Pemrograman-2\Praktikum\obj\x86\Debug\WindowsApplication1.FrmLogin.resources
+D:\Documents\Praktikum Pemrograman 2\Praktikum-Pemrograman-2\Praktikum\obj\x86\Debug\WindowsApplication1.MenuForm.resources
+D:\Documents\Praktikum Pemrograman 2\Praktikum-Pemrograman-2\Praktikum\obj\x86\Debug\WindowsApplication1.FormLaporanKaryawan.resources

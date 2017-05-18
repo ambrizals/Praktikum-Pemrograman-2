@@ -91,6 +91,8 @@ Public Class FrmKaryawan
         ElseIf search_check = 1 Then
             MsgBox("Data sudah ada", MsgBoxStyle.Critical, "Error")
             search_check = 0
+            TxtNmKar.Text = ""
+            TxtNmKar.Focus()
             'Validasi textbox yang tidak terisi
         ElseIf TxtNmKar.Text = "" Then
             MsgBox("Data Nama Karyawan Belum Terisi", MsgBoxStyle.Critical, "Error")
@@ -149,7 +151,8 @@ Public Class FrmKaryawan
             TxtAlamat.Enabled = False
             TxtTelp.Enabled = False
         Else
-            Me.Close()
+            Me.Hide()
+            FrmLogin.Show()
         End If
 
     End Sub
@@ -205,7 +208,7 @@ Public Class ClsKoneksi
     Public Function OpenConn() As Boolean
         Cn = New MySqlConnection("server=localhost;" _
             & "user id=root;" _
-            & "password=123456;" _
+            & "password=;" _
             & "database=toko")
         Cn.Open()
         If Cn.State <> ConnectionState.Open Then
